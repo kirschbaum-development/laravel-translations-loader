@@ -21,7 +21,7 @@ First thing you need to do is to create a file called `index.js` in your `resour
 ##### JSON translation files
 
 ```js
-import languageBundle from 'laravel-i18n-loader/json?!./../../lang`;
+import languageBundle from 'laravel-i18n-loader/json?!./../../lang';
 ```
 
 Note: You may have to adjust the relative path to your language folder.
@@ -29,7 +29,7 @@ Note: You may have to adjust the relative path to your language folder.
 ##### PHP translation files
 
 ```js
-import languageBundle from 'laravel-i18n-loader/php?!./../../lang`;
+import languageBundle from 'laravel-i18n-loader/php?!./../../lang';
 ```
 
 Note: You may have to adjust the relative path to your language folder.
@@ -40,8 +40,8 @@ Not a problem.
 
 ```js
 import _ from 'lodash';
-import phpLanguageBundle from 'laravel-i18n-loader/php?!./../../lang`;
-import jsonLanguageBundle from 'laravel-i18n-loader/json?!./../../lang`;
+import phpLanguageBundle from 'laravel-i18n-loader/php?!./../../lang';
+import jsonLanguageBundle from 'laravel-i18n-loader/json?!./../../lang';
 
 let languageBundle = _.merge(jsonLanguageBundle, phpLanguageBundle};
 ```
