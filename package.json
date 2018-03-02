@@ -1,0 +1,36 @@
+{
+    "name": "laravel-i18n-loader",
+    "version": "0.0.1",
+    "author": {
+        "name": "Kirschbaum Development"
+    },
+    "description": "A language loader to load laravel language files for webpack and i18next",
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://www.opensource.org/licenses/mit-license.php"
+        }
+    ],
+    "keywords": [
+        "webpack",
+        "laravel",
+        "i18n",
+        "i18next",
+        "loader"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kirschbaum-development/laravel-i18n-loader"
+    },
+    "homepage": "https://github.com/kirschbaum-development/laravel-i18n-loader",
+    "maintainers": [
+        {
+            "name": "Luis Dalmolin",
+            "email": "luis@kirschbaumdevelopment.com"
+        }
+    ],
+    "dependencies": {
+        "lodash": "^4.17.5",
+        "php-array-parser": "^1.0.1"
+    }
+}
