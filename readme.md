@@ -1,20 +1,43 @@
 # Laravel Translations Loader
 
-This package is a webpack loader to import your laravel translation files (PHP or JSON) into your JS bundle so you can use packages like [i18next](https://www.i18next.com/).
+This package is a webpack loader to import your laravel translation files (PHP or JSON) into your JS bundle as JSON so you can use packages like [i18next](https://www.i18next.com/).
 
 ### Installation
 
 ```bash
-$ yarn add @kirschbaum-development/laravel-translations-loader
+$ yarn add @kirschbaum-development/laravel-translations-loader --dev
 ```
 
 or
 
 ```bash
-$ npm install @kirschbaum-development/laravel-translations-loader --save
+$ npm install @kirschbaum-development/laravel-translations-loader --save-dev
 ```
 
 ### Usage
+
+```js
+import languageBundle from '@kirschbaum-development/laravel-translations-loader!@kirschbaum-development/laravel-translations-loader';
+```
+
+This will load and parse all your language files, including PHP and JSON translations. The `languageBundle` will look something like this:
+
+```json
+{
+    "en": {
+        "auth: {
+            "failed": "These credentials do not match our records."
+        }
+    },
+    "es": {
+        "auth: {
+            "failed": "These credentials do not match our records."
+        }
+    }
+}
+```
+
+And so on, with all your languages and all your translation string
 
 ##### JSON translation files
 

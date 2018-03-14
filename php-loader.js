@@ -6,17 +6,16 @@ const phpArrayParser = require('php-array-parser');
 
 export default {
     execute (baseDirectory) {
-        var bundle = {};
-
-        var directories;
+        let bundle = {};
+        let directories;
 
         directories = fs.readdirSync(baseDirectory).filter(function (file) {
             return fs.statSync(path.join(baseDirectory, file)).isDirectory();
         });
 
         directories.forEach(function (directory) {
-            var langDirectory = path.join(baseDirectory, directory);
-            var files = files = fs.readdirSync(langDirectory).filter(function (file) {
+            const langDirectory = path.join(baseDirectory, directory);
+            const files = files = fs.readdirSync(langDirectory).filter(function (file) {
                 return path.extname(file) === '.php';
             });
 
