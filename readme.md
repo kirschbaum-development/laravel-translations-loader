@@ -2,6 +2,10 @@
 
 This package is a webpack loader to import your laravel translation files (PHP or JSON) into your JS bundle as JSON so you can use packages like [i18next](https://www.i18next.com/).
 
+### Requirements
+
+This package only works with [webpack](https://webpack.js.org/), since it's essentially a webpack loader.
+
 ### Installation
 
 ```bash
@@ -37,48 +41,23 @@ This will load and parse all your language files, including PHP and JSON transla
 }
 ```
 
-And so on, with all your languages and all your translation string
+And so on, with all your languages and all your translation strings.
 
-##### JSON translation files
+#### Load only JSON translations
 
 ```js
 import languageBundle from '@kirschbaum-development/laravel-translations-loader/json!@kirschbaum-development/laravel-translations-loader';
 ```
 
-##### PHP translation files
+#### Load only PHP translation files
 
 ```js
 import languageBundle from '@kirschbaum-development/laravel-translations-loader/php!@kirschbaum-development/laravel-translations-loader';
 ```
 
-##### JSON & PHP translation files
+### Packages you can use
 
-Not a problem.
-
-```js
-import _ from 'lodash';
-import phpLanguageBundle from '@kirschbaum-development/laravel-translations-loader/php!@kirschbaum-development/laravel-translations-loader';
-import jsonLanguageBundle from '@kirschbaum-development/laravel-translations-loader/json!@kirschbaum-development/laravel-translations-loader';
-
-let languageBundle = _.merge(jsonLanguageBundle, phpLanguageBundle};
-```
-
-***
-
-With your language bundle, you can now use with [vue-i18n](https://github.com/kazupon/vue-i18n), for example:
-
-```js
-import Vue from 'vue';
-import VueI18n from 'vue-i18n';
-Vue.use(VueI18n);
-
-const i18n = new VueI18n({
-    locale: 'es', // you can get this from a global JS variable
-    messages: languageBundle,
-})
-
-const app = new Vue({
-    el: '#app',
-    i18n: i18n
-});
-```
+* [i18next](https://www.i18next.com/)
+* [vue-i18next](https://github.com/panter/vue-i18next)
+* [vue-i18n](https://github.com/kazupon/vue-i18n)
+* [react-i18next](https://github.com/i18next/react-i18next)
