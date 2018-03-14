@@ -55,7 +55,9 @@ import languageBundle from '@kirschbaum-development/laravel-translations-loader/
 import languageBundle from '@kirschbaum-development/laravel-translations-loader/php!@kirschbaum-development/laravel-translations-loader';
 ```
 
-### Packages you can use
+***
+
+### Useful packages to use with laravel-translations-loader
 
 * [i18next](https://www.i18next.com/)
 * [vue-i18next](https://github.com/panter/vue-i18next)
