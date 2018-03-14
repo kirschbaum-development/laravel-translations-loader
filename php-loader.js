@@ -4,18 +4,19 @@ const _ = require('lodash');
 const loaderUtils = require('loader-utils');
 const phpArrayParser = require('php-array-parser');
 
-export default {
+const phpLoader = {
     execute (baseDirectory) {
-        let bundle = {};
-        let directories;
+        var bundle = {};
+
+        var directories;
 
         directories = fs.readdirSync(baseDirectory).filter(function (file) {
             return fs.statSync(path.join(baseDirectory, file)).isDirectory();
         });
 
         directories.forEach(function (directory) {
-            const langDirectory = path.join(baseDirectory, directory);
-            const files = files = fs.readdirSync(langDirectory).filter(function (file) {
+            var langDirectory = path.join(baseDirectory, directory);
+            var files = files = fs.readdirSync(langDirectory).filter(function (file) {
                 return path.extname(file) === '.php';
             });
 
@@ -41,3 +42,5 @@ export default {
         return bundle;
     }
 }
+
+module.exports = phpLoader

@@ -5,8 +5,8 @@ const jsonLoader = require('./json-loader');
 module.exports = function (indexContent) {
     const baseDirectory = path.dirname(this.resource) + '/../../../resources/lang';
     const jsonContents = jsonLoader.execute(baseDirectory);
-    const phpContents = jsonLoader.execute(baseDirectory);
-    const bundle = _.merge(jsonContents, phpContents);
+    const phpContents = phpLoader.execute(baseDirectory);
+    const bundle = _.merge(phpContents, jsonContents);
 
     return "module.exports = " + JSON.stringify(bundle);
 }

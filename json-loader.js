@@ -2,7 +2,7 @@ var path = require("path");
 var fs = require("fs");
 var loaderUtils = require('loader-utils');
 
-export default {
+const jsonLoader = {
     execute (baseDirectory) {
         var bundle = {};
 
@@ -20,3 +20,5 @@ export default {
         return bundle;
     }
 }
+
+module.exports = jsonLoader
