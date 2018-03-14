@@ -25,12 +25,12 @@ This will load and parse all your language files, including PHP and JSON transla
 ```json
 {
     "en": {
-        "auth: {
+        "auth": {
             "failed": "These credentials do not match our records."
         }
     },
     "es": {
-        "auth: {
+        "auth": {
             "failed": "These credentials do not match our records."
         }
     }
