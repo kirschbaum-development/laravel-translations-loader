@@ -4,7 +4,7 @@ var loaderUtils = require('loader-utils');
 
 module.exports = function (indexContent) {
     var bundle = {};
-    var baseDirectory = path.dirname(this.resource);
+    var baseDirectory = path.dirname(this.resource) + '/../../../resources/lang';
 
     files = fs.readdirSync(baseDirectory).filter(function (file) {
         return path.extname(file) === '.json';

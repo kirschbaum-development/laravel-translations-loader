@@ -1,12 +1,13 @@
-const path = require("path");
-const fs = require("fs");
-const _ = require("lodash");
+const path = require('path');
+const fs = require('fs');
+const _ = require('lodash');
 const loaderUtils = require('loader-utils');
 const phpArrayParser = require('php-array-parser');
 
 module.exports = function (indexContent) {
     var bundle = {};
-    var baseDirectory = path.dirname(this.resource);
+    var baseDirectory = path.dirname(this.resource) + '/../../../resources/lang';
+
     var directories;
 
     directories = fs.readdirSync(baseDirectory).filter(function (file) {
@@ -27,10 +28,13 @@ module.exports = function (indexContent) {
             content = content.substr(ret)
             content = content.replace(/\?>\s*$/, '_')
 
+            let langObject = {}
+            langObject[file.replace('.php', '')] = phpArrayParser.parse(content)
+
             if (typeof bundle[directory] === 'undefined') {
-                bundle[directory] = parser.parse(content);
+                bundle[directory] = langObject;
             } else {
-                bundle[directory] = _.extend(bundle[directory], parser.parse(content));
+                bundle[directory] = _.extend(bundle[directory], langObject);
             }
         });
     });

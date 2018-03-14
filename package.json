@@ -1,10 +1,11 @@
 {
-    "name": "laravel-i18n-loader",
-    "version": "0.0.1",
+    "name": "@kirschbaum-development/laravel-translations-loader",
+    "version": "0.0.5",
+    "main": "all.js",
     "author": {
         "name": "Kirschbaum Development"
     },
-    "description": "A language loader to load laravel language files for webpack and i18next",
+    "description": "A webpack loader to load laravel language files for webpack and i18next",
     "licenses": [
         {
             "type": "MIT",
