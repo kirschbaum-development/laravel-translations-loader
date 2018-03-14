@@ -20,6 +20,8 @@ $ npm install @kirschbaum-development/laravel-translations-loader --save-dev
 
 ### Usage
 
+In your `app.js` file, just add the following import.
+
 ```js
 import languageBundle from '@kirschbaum-development/laravel-translations-loader!@kirschbaum-development/laravel-translations-loader';
 ```
