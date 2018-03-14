@@ -6,5 +6,5 @@ const jsonLoader = require('./json-loader');
 module.exports = function (indexContent) {
     const baseDirectory = path.dirname(this.resource) + '/../../../resources/lang';
 
-    return "module.exports = " + JSON.stringify(jsonLoader.load(baseDirectory));
+    return "module.exports = " + JSON.stringify(jsonLoader.execute(baseDirectory));
 }

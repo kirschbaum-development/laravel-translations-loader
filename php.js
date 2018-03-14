@@ -8,5 +8,5 @@ const phpLoader = require('./php-loader');
 module.exports = function (indexContent) {
     const baseDirectory = path.dirname(this.resource) + '/../../../resources/lang';
 
-    return "module.exports = " + JSON.stringify(phpLoader.load(baseDirectory));
+    return "module.exports = " + JSON.stringify(phpLoader.execute(baseDirectory));
 }
