@@ -4,7 +4,7 @@ This package is a webpack loader to import your laravel translation files (PHP o
 
 ### Requirements
 
-This package only works with [webpack](https://webpack.js.org/), since it's essentially a webpack loader.
+This package works with any version of laravel, as long as you are using [Laravel Mix](https://laravel.com/docs/5.6/mix) or any custom [webpack](https://webpack.js.org/) configuration, since this package it's essentially a webpack loader.
 
 ### Installation
 
