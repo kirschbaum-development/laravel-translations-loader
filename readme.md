@@ -65,3 +65,18 @@ import languageBundle from '@kirschbaum-development/laravel-translations-loader/
 * [vue-i18next](https://github.com/panter/vue-i18next)
 * [vue-i18n](https://github.com/kazupon/vue-i18n)
 * [react-i18next](https://github.com/i18next/react-i18next)
+
+### Example using [vue-i18n](https://github.com/kazupon/vue-i18n)
+
+Notice you can directly pass the `languageBundle` object as a parameter into the `VueI18n` constructor.
+
+```js
+import languageBundle from '@kirschbaum-development/laravel-translations-loader!@kirschbaum-development/laravel-translations-loader';
+import VueI18n from 'vue-i18n';
+Vue.use(VueI18n);
+
+const i18n = new VueI18n({
+    locale: window.Locale,
+    messages: languageBundle,
+})
+```
