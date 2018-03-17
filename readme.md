@@ -1,7 +1,8 @@
 # Laravel Translations Loader
 
 
-[![npm](https://img.shields.io/npm/dt/express.svg)](https://www.npmjs.com/package/@kirschbaum-development/laravel-translations-loader)
+
+[![npm](https://img.shields.io/npm/dt/@kirschbaum-development/laravel-translations-loader.svg)](https://www.npmjs.com/package/@kirschbaum-development/laravel-translations-loader)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://www.npmjs.com/package/@kirschbaum-development/laravel-translations-loader)
 
 This package is a webpack loader to import your laravel translation files (PHP or JSON) into your JS bundle as JSON so you can use packages like [i18next](https://www.i18next.com/).
