@@ -24,6 +24,8 @@ $ npm install @kirschbaum-development/laravel-translations-loader --save-dev
 
 ### Usage
 
+If you prefer, we have a [demo project](https://github.com/kirschbaum-development/laravel-translations-loader-demo) showing how to use it on laravel.
+
 In your `app.js` file, just add the following import.
 
 ```js
