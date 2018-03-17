@@ -1,4 +1,4 @@
-# Laravel Translations Loader
+![](https://raw.githubusercontent.com/kirschbaum-development/laravel-translations-loader/master/logo.jpg?token=AAYn9h-vXceXIQuDhuQ4_wvzY2RWDWMkks5atjySwA%3D%3D)
 
 [![npm](https://img.shields.io/npm/v/@kirschbaum-development/laravel-translations-loader.svg)](https://github.com/kirschbaum-development/laravel-translations-loader)
 [![npm](https://img.shields.io/npm/dt/@kirschbaum-development/laravel-translations-loader.svg)](https://www.npmjs.com/package/@kirschbaum-development/laravel-translations-loader)
