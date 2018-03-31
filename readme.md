@@ -1,6 +1,6 @@
 ![](https://image.ibb.co/hgnwNx/logo.jpg)
 
-[![npm](https://img.shields.io/npm/v/@kirschbaum-development/laravel-translations-loader.svg)](https://github.com/kirschbaum-development/laravel-translations-loader)
+[![npm](https://img.shields.io/npm/v/@kirschbaum-development/laravel-translations-loader.svg)](https://www.npmjs.com/package/@kirschbaum-development/laravel-translations-loader)
 [![npm](https://img.shields.io/npm/dt/@kirschbaum-development/laravel-translations-loader.svg)](https://www.npmjs.com/package/@kirschbaum-development/laravel-translations-loader)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://www.npmjs.com/package/@kirschbaum-development/laravel-translations-loader)
 
