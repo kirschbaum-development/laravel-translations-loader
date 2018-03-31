@@ -5,7 +5,7 @@ const loaderUtils = require('loader-utils');
 const phpArrayParser = require('php-array-parser');
 
 const phpLoader = {
-    execute (baseDirectory) {
+    execute (baseDirectory, options) {
         var bundle = {};
 
         var directories;
@@ -31,10 +31,19 @@ const phpLoader = {
                 let langObject = {}
                 langObject[file.replace('.php', '')] = phpArrayParser.parse(content)
 
-                if (typeof bundle[directory] === 'undefined') {
-                    bundle[directory] = langObject;
+                if (typeof options.namespace !== 'undefined') {
+                    if (typeof bundle[directory] === 'undefined') {
+                        bundle[directory] = {};
+                        bundle[directory][options.namespace] = langObject
+                    } else {
+                        bundle[directory][options.namespace] = _.extend(bundle[directory][options.namespace], langObject);
+                    }
                 } else {
-                    bundle[directory] = _.extend(bundle[directory], langObject);
+                    if (typeof bundle[directory] === 'undefined') {
+                        bundle[directory] = langObject;
+                    } else {
+                        bundle[directory] = _.extend(bundle[directory], langObject);
+                    }
                 }
             });
         });

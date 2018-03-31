@@ -1,10 +1,9 @@
-var path = require("path");
-var fs = require("fs");
-var loaderUtils = require('loader-utils');
+let fs = require('fs');
+let path = require('path');
 
 const jsonLoader = {
-    execute (baseDirectory) {
-        var bundle = {};
+    execute(baseDirectory, options) {
+        let bundle = {};
 
         files = fs.readdirSync(baseDirectory).filter(function (file) {
             return path.extname(file) === '.json';
@@ -14,7 +13,12 @@ const jsonLoader = {
             var lang = file.replace('.json', '');
             var content = fs.readFileSync(path.join(baseDirectory, file));
 
-            bundle[lang] = JSON.parse(content);
+            if (typeof options.namespace !== 'undefined') {
+                bundle[lang] = {};
+                bundle[lang][options.namespace] = JSON.parse(content);
+            } else {
+                bundle[lang] = JSON.parse(content);
+            }
         });
 
         return bundle;

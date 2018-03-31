@@ -43,13 +43,42 @@ This will load and parse all your language files, including PHP and JSON transla
     },
     "es": {
         "auth": {
-            "failed": "These credentials do not match our records."
+            "failed": "Estas credenciales no coinciden con nuestros registros."
         }
     }
 }
 ```
 
 And so on, with all your languages and all your translation strings.
+
+#### Namespacing
+
+Some packages like [i18next](https://www.i18next.com) require a "namespace" before your actual translations. When this happens, you can import your files like this:
+
+```js
+import languageBundle from '@kirschbaum-development/laravel-translations-loader?namespace=translation!@kirschbaum-development/laravel-translations-loader';
+```
+
+And your translations will be loaded with the specified namespace in front of the translations:
+
+```json
+{
+    "en": {
+        "translation": {
+            "auth": {
+                "failed": "These credentials do not match our records."
+            }
+        }
+    },
+    "es": {
+        "translation": {
+            "auth": {
+                "failed": "Estas credenciales no coinciden con nuestros registros."
+            }
+        }
+    }
+}
+```
 
 #### Load only JSON translations
 
