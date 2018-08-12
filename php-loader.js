@@ -14,6 +14,7 @@ const phpLoader = {
             return fs.statSync(path.join(baseDirectory, file)).isDirectory();
         });
 
+
         directories.forEach(function (directory) {
             var langDirectory = path.join(baseDirectory, directory);
             var files = files = fs.readdirSync(langDirectory).filter(function (file) {

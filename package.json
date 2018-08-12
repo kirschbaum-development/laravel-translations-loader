@@ -1,6 +1,6 @@
 {
     "name": "@kirschbaum-development/laravel-translations-loader",
-    "version": "0.2.1",
+    "version": "0.3.0",
     "main": "all.js",
     "author": {
         "name": "Kirschbaum Development"
@@ -31,7 +31,14 @@
         }
     ],
     "dependencies": {
+        "loader-utils": "^1.1.0",
         "lodash": "^4.17.5",
         "php-array-parser": "^1.0.1"
+    },
+    "devDependencies": {
+        "mocha": "^5.2.0"
+    },
+    "scripts": {
+        "test": "./node_modules/mocha/bin/mocha"
     }
 }

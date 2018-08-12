@@ -3,7 +3,6 @@ const fs = require('fs');
 const _ = require('lodash');
 const phpLoader = require('./php-loader');
 const loaderUtils = require('loader-utils');
-const phpArrayParser = require('php-array-parser');
 
 module.exports = function (indexContent) {
     let options = {};
