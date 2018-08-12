@@ -5,11 +5,11 @@ const jsonLoader = {
     execute(baseDirectory, options) {
         let bundle = {};
 
-        files = fs.readdirSync(baseDirectory).filter(function (file) {
+        files = fs.readdirSync(baseDirectory).filter((file) => {
             return path.extname(file) === '.json';
         });
 
-        files.forEach(function (file) {
+        files.forEach((file) => {
             var lang = file.replace('.json', '');
             var content = fs.readFileSync(path.join(baseDirectory, file));
 
@@ -19,9 +19,19 @@ const jsonLoader = {
             } else {
                 bundle[lang] = JSON.parse(content);
             }
+
+            if (typeof options.parameters !== "undefined") {
+                bundle[lang] = this.replaceParameter(bundle[lang], options.parameters);
+            }
         });
 
         return bundle;
+    },
+
+    replaceParameter(object, replacement) {
+        let objectAsString = JSON.stringify(object);
+        objectAsString = objectAsString.replace(/\:(\w+)/, replacement);
+        return JSON.parse(objectAsString);
     }
 }
 

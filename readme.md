@@ -93,6 +93,16 @@ import languageBundle from '@kirschbaum-development/laravel-translations-loader/
 import languageBundle from '@kirschbaum-development/laravel-translations-loader/php!@kirschbaum-development/laravel-translations-loader';
 ```
 
+#### Replacing Laravel Parameters
+
+Sometines your javascript library may need to use a parameter syntax different than the one Laravel ships (e.g. `:input`). For that, you can just pass an additional parameter when importing the bundle. Let's say you want to change from `:input` to `{{ input }}`. You just need to add the `parameters` option:
+
+```js
+import languageBundle from '@kirschbaum-development/laravel-translations-loader/php?parameters={{ $1 }}!@kirschbaum-development/laravel-translations-loader';
+```
+
+And that's it. Your parameters will be replaced by your new syntax. **Important:** Don't forget to use the `$1` or the parameter name will not be populated.
+
 ***
 
 ### Useful packages to use with laravel-translations-loader
