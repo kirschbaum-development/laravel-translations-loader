@@ -103,6 +103,20 @@ import languageBundle from '@kirschbaum-development/laravel-translations-loader/
 
 And that's it. Your parameters will be replaced by your new syntax. **Important:** Don't forget to use the `$1` or the parameter name will not be populated.
 
+#### Using a different folder
+
+If you are developing a package or for some reason have a different location for your translations, you can configure that by creating a `.js` file on your translations folder. For example, let's say you want to load translations on the language vendor folder.
+
+First thing you need is to create a `index.js` file (empty, no content needed) on the `resources/lang/vendor/{package-name}`.
+
+Then, you just need to reference this file when importing the translations:
+
+```js
+'@kirschbaum-development/laravel-translations-loader/php!resources/lang/vendor/{package-name}';
+```
+
+This will make the package loads your translations from `resources/lang/vendor/{package-name}` instead of `resources/lang`.
+
 ***
 
 ### Useful packages to use with laravel-translations-loader
