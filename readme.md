@@ -119,7 +119,7 @@ This will make the package loads your translations from `resources/lang/vendor/{
 
 ### Configuring in webpack.config.js
 
-You can also apply the same configurations showed above directly on `webpack.config.js`. For that, just include the following:
+You can also apply the same configurations showed above directly on `webpack.config.js`. For that, just include the following rules in your config file:
 
 ```js
 rules: [
