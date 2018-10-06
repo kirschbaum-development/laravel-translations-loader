@@ -117,6 +117,38 @@ Then, you just need to reference this file when importing the translations:
 
 This will make the package loads your translations from `resources/lang/vendor/{package-name}` instead of `resources/lang`.
 
+### Configuring in webpack.config.js
+
+You can also apply the same configurations showed above directly on `webpack.config.js`. For that, just include the following:
+
+```js
+rules: [
+    {
+        test: path.resolve(__dirname, 'resources/lang/index.js'), // path to your index.js file
+        loader: '@kirschbaum-development/laravel-translations-loader/php?parameters={$1}'
+    }
+]
+```
+
+Then, you just need to import the `index.js` file:
+
+```js
+import languageBundle from 'resources/lang/index.js';
+```
+
+For Laravel Mix, just apply the same configuration in the following way:
+
+```js
+mix.webpackConfig({
+    rules: [
+        {
+            test: path.resolve(__dirname, 'resources/lang/index.js'), // path to your index.js file
+            loader: '@kirschbaum-development/laravel-translations-loader/php?parameters={$1}'
+        }
+    ]
+});
+```
+
 ***
 
 ### Useful packages to use with laravel-translations-loader
