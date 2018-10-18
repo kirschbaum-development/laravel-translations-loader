@@ -12,7 +12,7 @@ module.exports = function (indexContent) {
         options = loaderUtils.parseQuery(this.query);
     } catch (e) { }
 
-    if (path.dirname(this.resource) === path.dirname('node_modules/@kirschbaum-development/laravel-translations-loader/php.js')) {
+    if (path.dirname(this.resource).includes(path.dirname('node_modules/@kirschbaum-development/laravel-translations-loader/php.js'))) {
         baseDirectory = path.dirname(this.resource) + "/../../../resources/lang";
     } else {
         baseDirectory = path.dirname(this.resource);
