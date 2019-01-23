@@ -30,7 +30,7 @@ const jsonLoader = {
 
     replaceParameter(object, replacement) {
         let objectAsString = JSON.stringify(object);
-        objectAsString = objectAsString.replace(/\:(\w+)/, replacement);
+        objectAsString = objectAsString.replace(/\:(\w+)/g, replacement);
         return JSON.parse(objectAsString);
     }
 }
