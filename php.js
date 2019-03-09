@@ -7,13 +7,14 @@ const loaderUtils = require('loader-utils');
 module.exports = function (indexContent) {
     let options = {};
     let baseDirectory;
+    let loaderPath = 'node_modules' + path.sep + '@kirschbaum-development' + path.sep + 'laravel-translations-loader' + path.sep + 'php.js';
 
     try {
         options = loaderUtils.parseQuery(this.query);
     } catch (e) { }
 
-    if (path.dirname(this.resource).includes(path.dirname('node_modules/@kirschbaum-development/laravel-translations-loader/php.js'))) {
-        baseDirectory = path.dirname(this.resource) + "/../../../resources/lang";
+    if (path.dirname(this.resource).includes(path.dirname(loaderPath))) {
+        baseDirectory = path.dirname(this.resource) + path.sep + '..' + path.sep + '..' + path.sep + '..' + path.sep + 'resources' + path.sep + 'lang';
     } else {
         baseDirectory = path.dirname(this.resource);
     }
