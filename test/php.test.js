@@ -1,4 +1,5 @@
 let assert = require('assert')
+let path = require('path')
 let phpLoader = require('./../php-loader')
 
 describe('it should load php language files', function () {
@@ -45,6 +46,20 @@ describe('it should load php language files', function () {
         assert.deepEqual(content.en, {
             validation: {
                 required: 'the field {{ input }} is required'
+            }
+        });
+    });
+
+    it('should be able to load nested folders', function () {
+        let content = phpLoader.execute('./test/fixtures/php-with-nested-folders', {});
+
+        assert.deepEqual(content.en, {
+            validation: {
+                required: 'This field is required',
+            },
+            "menu/main": {
+                home: 'Home',
+                about: 'About'
             }
         });
     });
