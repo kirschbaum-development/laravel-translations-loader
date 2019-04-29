@@ -1,4 +1,5 @@
 const _ = require('lodash');
+const path = require('path');
 const phpLoader = require('./php-loader');
 const jsonLoader = require('./json-loader');
 const loaderUtils = require('loader-utils');
