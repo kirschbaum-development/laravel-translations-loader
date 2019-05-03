@@ -46,7 +46,7 @@ const phpLoader = {
                     }
 
                     if (typeof options.parameters !== "undefined") {
-                        bundle[directory][options.namespace] = bundle[directory][options.namespace].replace(/\:\w+/, options.parameters);
+                        bundle[directory][options.namespace] = this.replaceParameter(bundle[directory][options.namespace], options.parameters);
                     }
                 } else {
                     if (typeof bundle[directory] === 'undefined') {

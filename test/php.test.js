@@ -63,4 +63,31 @@ describe('it should load php language files', function () {
             }
         });
     });
+
+    it('should be able to use namespace', function () {
+        let namespace = 'test';
+        let content = phpLoader.execute('./test/fixtures/php-with-namespace', {
+            namespace: namespace,
+        });
+
+        assert.deepEqual(content.en[namespace], {
+            validation: {
+                required: 'This field is required',
+            }
+        });
+    });
+
+    it('should be able to use namespace and replace parameters', function () {
+        let namespace = 'test';
+        let content = phpLoader.execute('./test/fixtures/php-with-namespace-parameters', {
+            namespace: namespace,
+            parameters: '{{ $1 }}'
+        });
+
+        assert.deepEqual(content.en[namespace], {
+            validation: {
+                required: 'the field {{ input }} is required'
+            }
+        });
+    });
 });
