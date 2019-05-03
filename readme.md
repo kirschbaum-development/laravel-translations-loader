@@ -174,3 +174,20 @@ const i18n = new VueI18n({
     messages: languageBundle,
 })
 ```
+
+### Security
+
+If you discover any security related issues, please email luis@kirschbaumdevelopment.com or nathan@kirschbaumdevelopment.com instead of using the issue tracker.
+
+## Credits
+
+- [Luis Dalmolin](https://github.com/luisdalmolin)
+- [Our contributors](https://github.com/kirschbaum-development/laravel-translations-loader/graphs/contributors)
+
+## Sponsorship
+
+Development of this package is sponsored by Kirschbaum Development Group, a developer driven company focused on problem solving, team building, and community. Learn more [about us](https://kirschbaumdevelopment.com) or [join us](https://careers.kirschbaumdevelopment.com)!
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
