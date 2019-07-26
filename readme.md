@@ -119,7 +119,11 @@ This will make the package loads your translations from `resources/lang/vendor/{
 
 ### Configuring in webpack.config.js
 
-You can also apply the same configurations showed above directly on `webpack.config.js`. For that, just include the following rules in your config file:
+You can also apply the same configurations showed above directly on `webpack.config.js` to make this more readable. For that, follow these steps:
+
+1. Create an empty `index.js` file on the `resources/lang/index.js` path.
+
+2. Include the following rules in your config file:
 
 ```js
 rules: [
@@ -130,7 +134,7 @@ rules: [
 ]
 ```
 
-Then, you just need to import the `index.js` file:
+Then, you just need to import the recently created `index.js` file on your `app.js` (or whatever other) file:
 
 ```js
 import languageBundle from 'resources/lang/index.js';
