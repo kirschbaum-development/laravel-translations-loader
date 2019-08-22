@@ -1,4 +1,4 @@
-![](https://raw.githubusercontent.com/kirschbaum-development/laravel-stranslation-loader/master/banner.jpg)
+![](https://raw.githubusercontent.com/kirschbaum-development/laravel-translations-loader/master/banner.jpg)
 
 [![npm](https://img.shields.io/npm/v/@kirschbaum-development/laravel-translations-loader.svg)](https://www.npmjs.com/package/@kirschbaum-development/laravel-translations-loader)
 [![npm](https://img.shields.io/npm/dt/@kirschbaum-development/laravel-translations-loader.svg)](https://www.npmjs.com/package/@kirschbaum-development/laravel-translations-loader)
