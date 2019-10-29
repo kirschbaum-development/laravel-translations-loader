@@ -1,7 +1,7 @@
 on: push
 name: CI
 jobs:
-  phpunit:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
