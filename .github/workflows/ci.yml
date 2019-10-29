@@ -1,0 +1,17 @@
+on: push
+name: CI
+jobs:
+  phpunit:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ['10', '8']
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+          node-version: ${{ matrix.node }}
+
+    - run: yarn install
+    - run: yarn test
