@@ -27,6 +27,7 @@ const phpLoader = {
                 return path.extname(file.path) === '.php';
             }).forEach((file) => {
                 var filename = file.path.split(langDirectory + path.sep)[1];
+                var filename = filename.replace('\\', '/');
                 var content = fs.readFileSync(path.join(langDirectory, filename), 'utf8');
 
                 // Remove left part of return expression and any ending `?>`.
