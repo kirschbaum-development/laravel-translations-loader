@@ -1,7 +1,7 @@
 on: push
 name: CI
 jobs:
-  test:
+  linux-test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -15,3 +15,18 @@ jobs:
 
     - run: yarn install
     - run: yarn test
+
+  windows-test:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        node: ['10', '8']
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+          node-version: ${{ matrix.node }}
+
+    - run: yarn install
+    - run: yarn test-windows
