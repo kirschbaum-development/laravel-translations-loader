@@ -142,6 +142,8 @@ import languageBundle from 'resources/lang/index.js';
 
 For Laravel Mix, just apply the same configuration in the following way:
 
+**Laravel Mix 3:**
+
 ```js
 mix.webpackConfig({
     rules: [
@@ -151,6 +153,21 @@ mix.webpackConfig({
         }
     ]
 });
+```
+
+**Laravel Mix 4:**
+
+```js
+mix.extend('translations', new class {
+    webpackRules() {
+        return {
+            test: path.resolve(__dirname, '../resources/lang/index.js'),
+            loader: '@kirschbaum-development/laravel-translations-loader/php?parameters={$1}'
+        }
+    }
+});
+
+mix.translations();
 ```
 
 ***
