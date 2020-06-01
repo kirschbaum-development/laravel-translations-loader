@@ -36,7 +36,15 @@ const phpLoader = {
                 content = content.replace(/\?>\s*$/, '_')
 
                 let langObject = {}
-                langObject[filename.replace('.php', '')] = phpArrayParser.parse(content)
+                let parsedContent = null
+                try {
+                    parsedContent = phpArrayParser.parse(content);
+                } catch (e) {
+                    console.warn('The file "' + file.path + '" could not be parsed', e.message)
+                }
+                if (parsedContent !== null) {
+                    langObject[filename.replace('.php', '')] = parsedContent
+                }
 
                 if (typeof options.namespace !== 'undefined') {
                     if (typeof bundle[directory] === 'undefined') {
