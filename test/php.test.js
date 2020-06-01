@@ -90,4 +90,17 @@ describe('it should load php language files', function () {
             }
         });
     });
+
+    it('should not fail execution with invalid file', function () {
+        let content = phpLoader.execute('./test/fixtures/php-with-one-invalid-file', {});
+
+        assert.deepEqual(content.en, {
+            translation: {
+                validation: {
+                    required: 'this field is required',
+                },
+                another: 'translation',
+            }
+        });
+    });
 });
