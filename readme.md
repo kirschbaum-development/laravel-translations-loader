@@ -1,6 +1,6 @@
 ![](https://raw.githubusercontent.com/kirschbaum-development/laravel-translations-loader/master/banner.jpg)
 
-![Laravel Supported Versions](https://img.shields.io/badge/laravel-5.x/6.x/7.x-green.svg)
+![Laravel Supported Versions](https://img.shields.io/badge/laravel-5.x/6.x/7.x/8.x-green.svg)
 [![npm](https://img.shields.io/npm/v/@kirschbaum-development/laravel-translations-loader.svg)](https://www.npmjs.com/package/@kirschbaum-development/laravel-translations-loader)
 [![npm](https://img.shields.io/npm/dt/@kirschbaum-development/laravel-translations-loader.svg)](https://www.npmjs.com/package/@kirschbaum-development/laravel-translations-loader)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://www.npmjs.com/package/@kirschbaum-development/laravel-translations-loader)
