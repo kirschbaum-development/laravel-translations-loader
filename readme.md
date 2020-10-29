@@ -187,7 +187,7 @@ mix.translations();
 Notice you can directly pass the `languageBundle` object as a parameter into the `VueI18n` constructor.
 
 ```js
-import languageBundle from '@kirschbaum-development/laravel-translations-loader!@kirschbaum-development/laravel-translations-loader';
+import languageBundle from '@kirschbaum-development/laravel-translations-loader?parameters={$1}!@kirschbaum-development/laravel-translations-loader';
 import VueI18n from 'vue-i18n';
 Vue.use(VueI18n);
 
