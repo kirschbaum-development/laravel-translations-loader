@@ -21,8 +21,8 @@ module.exports = function (indexContent) {
 
     this.addDependency(baseDirectory);
 
-    const jsonContents = jsonLoader.execute(baseDirectory, options);
-    const phpContents = phpLoader.execute(baseDirectory, options);
+    const jsonContents = jsonLoader.execute(baseDirectory, options, this);
+    const phpContents = phpLoader.execute(baseDirectory, options, this);
     const bundle = _.merge(phpContents, jsonContents);
 
     return "module.exports = " + JSON.stringify(bundle);

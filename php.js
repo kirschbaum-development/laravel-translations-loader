@@ -22,6 +22,6 @@ module.exports = function (indexContent) {
     this.addDependency(baseDirectory);
 
     return "module.exports = " + JSON.stringify(
-        phpLoader.execute(baseDirectory, options)
+        phpLoader.execute(baseDirectory, options, this)
     );
 }
