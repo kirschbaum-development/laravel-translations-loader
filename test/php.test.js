@@ -107,7 +107,7 @@ describe('it should load php language files', function () {
     });
 
     it('should register translation files as dependencies for live reloading', function () {
-        let dependency;
+        let dependency = '';
         const loaderMock = { addDependency: (dep) => {
                 dependency = dep;
             } };
@@ -115,6 +115,7 @@ describe('it should load php language files', function () {
         phpLoader.execute('./test/fixtures/php-with-namespace', {}, loaderMock);
 
         const expected = '/test/fixtures/php-with-namespace/en/validation.php';
-        assert.strictEqual(dependency.endsWith(expected), true);
+        const actual = dependency.substring(dependency.length - expected.length);
+        assert.deepStrictEqual(actual.split(path.sep), expected.split('/'));
     });
 });
