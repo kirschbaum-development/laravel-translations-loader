@@ -6,7 +6,7 @@ const phpArrayParser = require('php-array-parser');
 const klaw = require('klaw-sync');
 
 const phpLoader = {
-    execute (baseDirectory, options) {
+    execute (baseDirectory, options, loader) {
         var bundle = {};
         var directories;
 
@@ -28,7 +28,9 @@ const phpLoader = {
             }).forEach((file) => {
                 var filename = file.path.split(langDirectory + path.sep)[1];
                 var filename = filename.replace('\\', '/');
-                var content = fs.readFileSync(path.join(langDirectory, filename), 'utf8');
+                var filePath = path.join(langDirectory, filename);
+                loader.addDependency(filePath);
+                var content = fs.readFileSync(filePath, 'utf8');
 
                 // Remove left part of return expression and any ending `?>`.
                 const ret = content.indexOf('return') + 'return'.length

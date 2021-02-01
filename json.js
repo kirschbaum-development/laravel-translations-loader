@@ -21,6 +21,6 @@ module.exports = function (indexContent) {
     this.addDependency(baseDirectory);
 
     return "module.exports = " + JSON.stringify(
-        jsonLoader.execute(baseDirectory, options)
+        jsonLoader.execute(baseDirectory, options, this)
     );
 }

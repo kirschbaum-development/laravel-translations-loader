@@ -3,8 +3,10 @@ let path = require('path')
 let phpLoader = require('./../php-loader')
 
 describe('it should load php language files', function () {
+    const loaderMock = { addDependency: () => {} };
+
     it('should load regular php translation', function () {
-        let content = phpLoader.execute('./test/fixtures/php', {});
+        let content = phpLoader.execute('./test/fixtures/php', {}, loaderMock);
 
         assert.deepEqual(content.en, {
             translation: {
@@ -17,7 +19,7 @@ describe('it should load php language files', function () {
     });
 
     it('should load both languages', function () {
-        let content = phpLoader.execute('./test/fixtures/php', {});
+        let content = phpLoader.execute('./test/fixtures/php', {}, loaderMock);
 
         assert.deepEqual(content.en, {
             translation: {
@@ -41,7 +43,7 @@ describe('it should load php language files', function () {
     it('should be able to replace parameters', function () {
         let content = phpLoader.execute('./test/fixtures/php-with-parameters', {
             parameters: '{{ $1 }}'
-        });
+        }, loaderMock);
 
         assert.deepEqual(content.en, {
             validation: {
@@ -51,7 +53,7 @@ describe('it should load php language files', function () {
     });
 
     it('should be able to load nested folders', function () {
-        let content = phpLoader.execute('./test/fixtures/php-with-nested-folders', {});
+        let content = phpLoader.execute('./test/fixtures/php-with-nested-folders', {}, loaderMock);
 
         assert.deepEqual(content.en, {
             validation: {
@@ -68,7 +70,7 @@ describe('it should load php language files', function () {
         let namespace = 'test';
         let content = phpLoader.execute('./test/fixtures/php-with-namespace', {
             namespace: namespace,
-        });
+        }, loaderMock);
 
         assert.deepEqual(content.en[namespace], {
             validation: {
@@ -82,7 +84,7 @@ describe('it should load php language files', function () {
         let content = phpLoader.execute('./test/fixtures/php-with-namespace-parameters', {
             namespace: namespace,
             parameters: '{{ $1 }}'
-        });
+        }, loaderMock);
 
         assert.deepEqual(content.en[namespace], {
             validation: {
@@ -92,7 +94,7 @@ describe('it should load php language files', function () {
     });
 
     it('should not fail execution with invalid file', function () {
-        let content = phpLoader.execute('./test/fixtures/php-with-one-invalid-file', {});
+        let content = phpLoader.execute('./test/fixtures/php-with-one-invalid-file', {}, loaderMock);
 
         assert.deepEqual(content.en, {
             translation: {
@@ -102,5 +104,18 @@ describe('it should load php language files', function () {
                 another: 'translation',
             }
         });
+    });
+
+    it('should register translation files as dependencies for live reloading', function () {
+        let dependency = '';
+        const loaderMock = { addDependency: (dep) => {
+                dependency = dep;
+            } };
+
+        phpLoader.execute('./test/fixtures/php-with-namespace', {}, loaderMock);
+
+        const expected = '/test/fixtures/php-with-namespace/en/validation.php';
+        const actual = dependency.substring(dependency.length - expected.length);
+        assert.deepStrictEqual(actual.split(path.sep), expected.split('/'));
     });
 });

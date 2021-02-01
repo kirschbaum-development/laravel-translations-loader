@@ -2,7 +2,7 @@ let fs = require('fs');
 let path = require('path');
 
 const jsonLoader = {
-    execute(baseDirectory, options) {
+    execute(baseDirectory, options, loader) {
         let bundle = {};
 
         files = fs.readdirSync(baseDirectory).filter((file) => {
@@ -11,7 +11,9 @@ const jsonLoader = {
 
         files.forEach((file) => {
             var lang = file.replace('.json', '');
-            var content = fs.readFileSync(path.join(baseDirectory, file));
+            var filePath = path.join(baseDirectory, file);
+            loader.addDependency(filePath);
+            var content = fs.readFileSync(filePath);
 
             if (typeof options.namespace !== 'undefined') {
                 bundle[lang] = {};
