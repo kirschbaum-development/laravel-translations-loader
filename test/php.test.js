@@ -114,6 +114,7 @@ describe('it should load php language files', function () {
 
         phpLoader.execute('./test/fixtures/php-with-namespace', {}, loaderMock);
 
-        assert.match(dependency, /\/test\/fixtures\/php-with-namespace\/en\/validation\.php$/)
+        const expected = '/test/fixtures/php-with-namespace/en/validation.php';
+        assert.strictEqual(dependency.endsWith(expected), true);
     });
 });
