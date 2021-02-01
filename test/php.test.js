@@ -105,4 +105,15 @@ describe('it should load php language files', function () {
             }
         });
     });
+
+    it('should register translation files as dependencies for live reloading', function () {
+        let dependency;
+        const loaderMock = { addDependency: (dep) => {
+                dependency = dep;
+            } };
+
+        phpLoader.execute('./test/fixtures/php-with-namespace', {}, loaderMock);
+
+        assert.match(dependency, /\/test\/fixtures\/php-with-namespace\/en\/validation\.php$/)
+    });
 });
