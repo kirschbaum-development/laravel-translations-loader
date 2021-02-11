@@ -171,6 +171,24 @@ mix.extend('translations', new class {
 mix.translations();
 ```
 
+**Laravel Mix 6:**
+
+```js
+mix.extend('translations', new class {
+    webpackRules() {
+        return {
+            test: path.resolve(__dirname, '../resources/lang/index.js'),
+            loader: '@kirschbaum-development/laravel-translations-loader/php',
+            options: {
+                parameters: "$1"
+            }
+        }
+    }
+});
+
+mix.translations();
+```
+
 ***
 
 ### Useful packages to use with laravel-translations-loader
