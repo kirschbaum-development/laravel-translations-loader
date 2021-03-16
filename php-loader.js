@@ -25,6 +25,12 @@ const phpLoader = {
                 nodir: true
             }).filter((file) => {
                 return path.extname(file.path) === '.php';
+            }).filter((file) => {
+                var filename = file.path.split(langDirectory + path.sep)[1]
+                return options.includeOnly.includes(filename);
+            }).filter((file) => {
+                var filename = file.path.split(langDirectory + path.sep)[1]
+                return !options.exclude.includes(filename);
             }).forEach((file) => {
                 var filename = file.path.split(langDirectory + path.sep)[1];
                 var filename = filename.replace('\\', '/');
