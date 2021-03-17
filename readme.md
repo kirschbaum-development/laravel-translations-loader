@@ -177,10 +177,12 @@ mix.translations();
 mix.extend('translations', new class {
     webpackRules() {
         return {
-            test: path.resolve(__dirname, '../resources/lang/index.js'),
+            test: path.resolve(__dirname, './resources/lang/index.js'),
             loader: '@kirschbaum-development/laravel-translations-loader/php',
             options: {
-                parameters: "$1"
+                parameters: "$1",
+                includeOnly: ['auth', 'validation'],
+                exclude: [],
             }
         }
     }
