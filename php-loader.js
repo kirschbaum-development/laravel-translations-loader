@@ -52,6 +52,15 @@ const phpLoader = {
                 content = content.replace(/\?>\s*$/, '_')
 
                 let langObject = {}
+                
+                let locale = directory;
+                
+                if (directory === 'vendor') {
+                    const regex = /(^.+?)(\/.+?\/)/g;
+                    locale = [...filename.matchAll(regex)];
+                    locale = locale[0][2].replaceAll("/", "");
+                    filename = filename.replace(regex, "$1/");
+                }
 
                 try {
                     let parsedContent = phpArrayParser.parse(content);
@@ -61,25 +70,25 @@ const phpLoader = {
                 }
 
                 if (typeof options.namespace !== 'undefined') {
-                    if (typeof bundle[directory] === 'undefined') {
-                        bundle[directory] = {};
-                        bundle[directory][options.namespace] = langObject
+                    if (typeof bundle[locale] === 'undefined') {
+                        bundle[locale] = {};
+                        bundle[locale][options.namespace] = langObject
                     } else {
-                        bundle[directory][options.namespace] = _.extend(bundle[directory][options.namespace], langObject);
+                        bundle[locale][options.namespace] = _.extend(bundle[locale][options.namespace], langObject);
                     }
 
                     if (typeof options.parameters !== "undefined") {
-                        bundle[directory][options.namespace] = this.replaceParameter(bundle[directory][options.namespace], options.parameters);
+                        bundle[locale][options.namespace] = this.replaceParameter(bundle[locale][options.namespace], options.parameters);
                     }
                 } else {
-                    if (typeof bundle[directory] === 'undefined') {
-                        bundle[directory] = langObject;
+                    if (typeof bundle[locale] === 'undefined') {
+                        bundle[locale] = langObject;
                     } else {
-                        bundle[directory] = _.extend(bundle[directory], langObject);
+                        bundle[locale] = _.extend(bundle[locale], langObject);
                     }
 
                     if (typeof options.parameters !== "undefined") {
-                        bundle[directory] = this.replaceParameter(bundle[directory], options.parameters);
+                        bundle[locale] = this.replaceParameter(bundle[locale], options.parameters);
                     }
                 }
             });
