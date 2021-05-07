@@ -8,7 +8,10 @@ describe('it should load php language files', function () {
     it('should load regular php translation', function () {
         let content = phpLoader.execute('./test/fixtures/php', {}, loaderMock);
 
-        assert.deepEqual(content.en, {
+        assert.deepStrictEqual(content.en, {
+            auth: {
+                login: 'Login',
+            },
             translation: {
                 validation: {
                     required: 'this field is required',
@@ -17,11 +20,38 @@ describe('it should load php language files', function () {
             }
         });
     });
+    
+    it('should be able to includeOnly options', function () {
+        let content = phpLoader.execute('./test/fixtures/php', {
+            includeOnly: ['auth']
+        }, loaderMock);
+
+        assert.deepStrictEqual(content.en, {
+            auth: {
+                login: 'Login',
+            }
+        });
+    });
+    
+    it('should be able to exclude options', function () {
+        let content = phpLoader.execute('./test/fixtures/php', {
+            exclude: ['translation']
+        }, loaderMock);
+
+        assert.deepStrictEqual(content.en, {
+            auth: {
+                login: 'Login',
+            }
+        });
+    });
 
     it('should load both languages', function () {
         let content = phpLoader.execute('./test/fixtures/php', {}, loaderMock);
 
-        assert.deepEqual(content.en, {
+        assert.deepStrictEqual(content.en, {
+            auth: {
+                login: 'Login',
+            },
             translation: {
                 validation: {
                     required: 'this field is required',
