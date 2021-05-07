@@ -104,6 +104,12 @@ describe("it should load php language files", function () {
     assert.deepEqual(content.en, {
       validation: {
         required: "the field {{ input }} is required"
+      },
+      "comp/package": {
+        package: {
+          lorem: "ipsum"
+        },
+        dolor: "sit amet"
       }
     });
   });
@@ -118,6 +124,12 @@ describe("it should load php language files", function () {
       "menu/main": {
         home: "Home",
         about: "About"
+      },
+      "comp/package": {
+        package: {
+          lorem: "ipsum"
+        },
+        dolor: "sit amet"
       }
     });
   });
@@ -131,6 +143,12 @@ describe("it should load php language files", function () {
     assert.deepEqual(content.en[namespace], {
       validation: {
         required: "This field is required"
+      },
+      "comp/package": {
+        package: {
+          lorem: "ipsum"
+        },
+        dolor: "sit amet"
       }
     });
   });
@@ -145,6 +163,12 @@ describe("it should load php language files", function () {
     assert.deepEqual(content.en[namespace], {
       validation: {
         required: "the field {{ input }} is required"
+      },
+      "comp/package": {
+        package: {
+          lorem: "ipsum"
+        },
+        dolor: "sit amet"
       }
     });
   });
@@ -158,6 +182,12 @@ describe("it should load php language files", function () {
           required: "this field is required"
         },
         another: "translation"
+      },
+      "comp/package": {
+        package: {
+          lorem: "ipsum"
+        },
+        dolor: "sit amet"
       }
     });
   });
@@ -170,9 +200,9 @@ describe("it should load php language files", function () {
       }
     };
 
-    phpLoader.execute("./test/fixtures/php-with-namespace", {}, loaderMock);
+    phpLoader.execute("./test/fixtures/php-with-namespace-as-dependency", {}, loaderMock);
 
-    const expected = "/test/fixtures/php-with-namespace/en/validation.php";
+    const expected = "/test/fixtures/php-with-namespace-as-dependency/en/validation.php";
     const actual = dependency.substring(dependency.length - expected.length);
     assert.deepStrictEqual(actual.split(path.sep), expected.split("/"));
   });
