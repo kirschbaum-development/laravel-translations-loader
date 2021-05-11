@@ -15,14 +15,14 @@ const jsonLoader = {
             loader.addDependency(filePath);
             var content = fs.readFileSync(filePath);
 
-            if (typeof options.namespace !== 'undefined') {
+            if (options && typeof options.namespace !== 'undefined') {
                 bundle[lang] = {};
                 bundle[lang][options.namespace] = JSON.parse(content);
             } else {
                 bundle[lang] = JSON.parse(content);
             }
 
-            if (typeof options.parameters !== "undefined") {
+            if (options && typeof options.parameters !== "undefined") {
                 bundle[lang] = this.replaceParameter(bundle[lang], options.parameters);
             }
         });

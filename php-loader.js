@@ -60,7 +60,7 @@ const phpLoader = {
                     console.warn('The file "' + file.path + '" could not be parsed', e.message);
                 }
 
-                if (typeof options.namespace !== 'undefined') {
+                if (options && typeof options.namespace !== 'undefined') {
                     if (typeof bundle[directory] === 'undefined') {
                         bundle[directory] = {};
                         bundle[directory][options.namespace] = langObject
@@ -78,7 +78,7 @@ const phpLoader = {
                         bundle[directory] = _.extend(bundle[directory], langObject);
                     }
 
-                    if (typeof options.parameters !== "undefined") {
+                    if (options && typeof options.parameters !== "undefined") {
                         bundle[directory] = this.replaceParameter(bundle[directory], options.parameters);
                     }
                 }
