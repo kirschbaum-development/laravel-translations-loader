@@ -1,3 +1,4 @@
+const fs = require('fs');
 const _ = require('lodash');
 const path = require('path');
 const phpLoader = require('./php-loader');
@@ -14,7 +15,11 @@ module.exports = function (indexContent) {
     } catch (e) { }
 
     if (path.dirname(this.resource).includes(path.dirname(loaderPath))) {
-        baseDirectory = path.dirname(this.resource) + path.sep + '..' + path.sep + '..' + path.sep + '..' + path.sep + 'resources' + path.sep + 'lang';
+        baseDirectory = path.dirname(this.resource) + path.sep + '..' + path.sep + '..' + path.sep + '..' + path.sep + 'lang';
+
+        if (! fs.existsSync(baseDirectory)) {
+            baseDirectory = path.dirname(this.resource) + path.sep + '..' + path.sep + '..' + path.sep + '..' + path.sep + 'resources' + path.sep + 'lang';
+        }
     } else {
         baseDirectory = path.dirname(this.resource);
     }
