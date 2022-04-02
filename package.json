@@ -1,6 +1,6 @@
 {
     "name": "@kirschbaum-development/laravel-translations-loader",
-    "version": "1.3.2",
+    "version": "1.4.0",
     "main": "all.js",
     "author": {
         "name": "Kirschbaum Development"
