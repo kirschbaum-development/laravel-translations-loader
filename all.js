@@ -11,7 +11,7 @@ module.exports = function (indexContent) {
     let loaderPath = 'node_modules' + path.sep + '@kirschbaum-development' + path.sep + 'laravel-translations-loader' + path.sep + 'all.js';
 
     try {
-        options = loaderUtils.parseQuery(this.query);
+        options = loaderUtils.getOptions(this);
     } catch (e) { }
 
     if (path.dirname(this.resource).includes(path.dirname(loaderPath))) {
