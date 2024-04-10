@@ -1,3 +1,7 @@
+## :warning: No Longer Supported
+
+Please note that since the standard Laravel front-end tools have moved away from webpack, this package is no longer maintained. You are free to fork and maintain a copy of this package.
+
 ![](https://raw.githubusercontent.com/kirschbaum-development/laravel-translations-loader/master/banner.jpg)
 
 ![Laravel Supported Versions](https://img.shields.io/badge/laravel-5.x/6.x/7.x/8.x-green.svg)
